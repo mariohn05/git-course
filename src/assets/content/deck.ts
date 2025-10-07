@@ -1,10 +1,14 @@
 // Assets
-import profJoao from "../images/prof-joao.jpeg";
-import profClara from "../images/profa-clara.jpeg";
-import profRicardo from "../images/prof-ricardo.jpg";
-import profMaria from "../images/prof-maria.jpeg";
-import profPaulo from "../images/prof-paulo.jpeg";
-import profRenata from "../images/profa-renata.jpeg";
+import carlosCarta from "../images/carlos-carta.png";
+import casteloCarta from "../images/castelo-carta.png";
+import jorgeCarta from "../images/jorge-carta.png";
+import lucasCarta from "../images/lucas-carta.png";
+import nobileCarta from "../images/nobile-carta.png";
+import pabloCarta from "../images/pablo-carta.png";
+import sergioCarta from "../images/sergio-carta.png";
+import silvanaCarta from "../images/silvana-carta.png";
+import trojahnCarta from "../images/trojahn-carta.png";
+
 
 // Types
 import type { Card } from "_types/arena";
@@ -17,83 +21,109 @@ type Deck = {
 export const deckContent: Deck = {
   firstPlayer: [
     {
-      id: "a-prof-joao",
-      teacher: "Prof. João",
-      nickname: "O Didático",
-      image: profJoao,
+      id: "a-carlos",
+      teacher: "Carlão",
+      nickname: "SpringBoot da Silva",
+      image: carlosCarta,
       attributes: {
-        didatica: 92,
-        carisma: 85,
-        rigor: 78,
-        prazos: 88,
-        humor: 70,
+        aura: 99,
+        recordeSupino: 99,
+        estilo: 99,
+        dificuldadeProva: 23,
+        fatorMedo: 12,
       },
     },
     {
-      id: "a-profa-clara",
-      teacher: "Profa. Clara",
+      id: "a-silvana",
+      teacher: "Silvana",
       nickname: "A Visionária",
-      image: profClara,
+      image: silvanaCarta,
       attributes: {
-        didatica: 88,
-        carisma: 95,
-        rigor: 65,
-        prazos: 72,
-        humor: 80,
+        aura: 76,
+        recordeSupino: 34,
+        estilo: 87,
+        dificuldadeProva: 70,
+        fatorMedo: 87,
       },
     },
     {
-      id: "a-prof-ricardo",
-      teacher: "Prof. Ricardo",
+      id: "a-sergio",
+      teacher: "Sérgio",
       nickname: "O Cientista",
-      image: profRicardo,
+      image: sergioCarta,
       attributes: {
-        didatica: 75,
-        carisma: 70,
-        rigor: 90,
-        prazos: 85,
-        humor: 60,
+        aura: 77,
+        recordeSupino: 73,
+        estilo: 84,
+        dificuldadeProva: 71,
+        fatorMedo: 33,
+      },
+    },
+    {
+      id: "a-trojahn",
+      teacher: "Tiago",
+      nickname: "O Cientista",
+      image: trojahnCarta,
+      attributes: {
+        aura: 83,
+        recordeSupino: 78,
+        estilo: 83,
+        dificuldadeProva: 91,
+        fatorMedo: 72,
       },
     },
   ],
   secondPlayer: [
     {
-      id: "b-profa-maria",
-      teacher: "Profa. Maria",
+      id: "b-jorge",
+      teacher: "Jorge",
       nickname: "A Exigente",
-      image: profMaria,
+      image: jorgeCarta,
       attributes: {
-        didatica: 80,
-        carisma: 70,
-        rigor: 95,
-        prazos: 90,
-        humor: 65,
+        aura: 79,
+        recordeSupino: 62,
+        estilo: 100,
+        dificuldadeProva: 98,
+        fatorMedo: 10,
       },
     },
     {
-      id: "b-prof-paulo",
-      teacher: "Prof. Paulo",
+      id: "b-pablo",
+      teacher: "Pablo",
       nickname: "O Bem-Humorado",
-      image: profPaulo,
+      image: pabloCarta,
       attributes: {
-        didatica: 78,
-        carisma: 88,
-        rigor: 70,
-        prazos: 75,
-        humor: 95,
+        aura: 79,
+        recordeSupino: 80,
+        estilo: 72,
+        dificuldadeProva: 57,
+        fatorMedo: 12,
       },
     },
     {
-      id: "b-profa-renata",
-      teacher: "Profa. Renata",
+      id: "b-lucas",
+      teacher: "Lucas",
       nickname: "A Estrategista",
-      image: profRenata,
+      image: lucasCarta,
       attributes: {
-        didatica: 85,
-        carisma: 82,
-        rigor: 88,
-        prazos: 80,
-        humor: 72,
+        aura: 100,
+        recordeSupino: 93,
+        estilo: 78,
+        dificuldadeProva: 98,
+        fatorMedo: 99,
+      },
+    },
+    {
+      id: "b-castelo",
+      teacher: "Wcastelo",
+      nickname: "A Estrategista",
+      image: casteloCarta,
+      attributes: {
+        aura: 73,
+        recordeSupino: 84,
+        estilo: 72,
+        dificuldadeProva: 80,
+        fatorMedo: 76,
       },
     },
   ],

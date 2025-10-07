@@ -1,9 +1,9 @@
 export type Attrs = {
-  didatica: number;
-  carisma: number;
-  rigor: number;
-  prazos: number;
-  humor: number;
+  aura: number;
+  recordeSupino: number;
+  estilo: number;
+  dificuldadeProva: number;
+  fatorMedo: number;
 };
 
 export type Card = {
@@ -16,7 +16,6 @@ export type Card = {
 };
 
 export type ArenaState = {
-  round: string;
   attribute: keyof Attrs;
   deckA: string;
   deckB: string;
@@ -25,7 +24,6 @@ export type ArenaState = {
 };
 
 export type Winner = {
-  round: string;
   winner: string;
   loser: string;
   attribute: keyof Attrs;

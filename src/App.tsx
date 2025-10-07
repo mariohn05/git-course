@@ -69,19 +69,18 @@ export default function App() {
 
       <section className="w-full px-4 mt-4">
         <h2 className="text-xl font-semibold mb-3">
-          🆚 Arena X1 — Deck A vs Deck B
+          Arena de Batalha
         </h2>
         {!arena ? (
           <div className="rounded-xl border border-neutral-200 bg-white p-4 text-neutral-600">
-            Configure <code>/arena.json</code> assim:
+            Configure <code>/arena.ts</code> assim:
             <pre className="mt-2 text-xs bg-neutral-50 p-2 rounded-lg overflow-auto">{`{
-  "round": "...",
-  "attribute": "didatica|carisma|rigor|prazos|humor",
-  "deckA": "id do deckA",
-  "deckB": "id do deckB",
-  "playerAName": "Nome Jogador A",
-  "playerBName": "Nome Jogador B"
-}`}</pre>
+    attribute: "aura",
+    deckA: "a-carlos",
+    deckB: "b-jorge",
+    playerAName: "Erick",
+    playerBName: "Erick 2",
+  },`}</pre>
           </div>
         ) : (
           <ArenaView
@@ -98,75 +97,73 @@ export default function App() {
       </section>
 
       <section className="w-full px-4 mt-10">
-        <h3 className="text-lg font-semibold">🗂️ Deck A</h3>
-        <CardsGrid cards={deckA} emptyHint="Adicione cartas em /deckA.json" />
+        <h3 className="text-lg font-semibold">Deck A</h3>
+        <CardsGrid cards={deckA}/>
       </section>
 
       <section className="w-full px-4 mt-6">
-        <h3 className="text-lg font-semibold">🗂️ Deck B</h3>
-        <CardsGrid cards={deckB} emptyHint="Adicione cartas em /deckB.json" />
+        <h3 className="text-lg font-semibold">Deck B</h3>
+        <CardsGrid cards={deckB}/>
       </section>
 
       <section className="w-full px-4 mt-10 pb-16">
-        <h2 className="text-xl font-semibold mb-3">🏆 Histórico de Batalhas</h2>
+        <h2 className="text-xl font-semibold mb-3">Histórico de Batalhas</h2>
         {!winners || winners.length === 0 ? (
           <div className="rounded-xl border border-dashed border-neutral-300 bg-white p-6 text-neutral-600">
             Ainda não há vencedores. Após o PR do vencedor, adicione uma entrada
-            em <code>/winners.json</code>.
+            em <code>/winners.ts</code>.
           </div>
         ) : (
           <ul className="space-y-4">
-            {winners.map((w, i) => {
-              const winC = cardIndex.get(w.winner) || null;
-              const losC = cardIndex.get(w.loser) || null;
-              return (
-                <li
-                  key={`${w.round}-${i}`}
-                  className="rounded-2xl border border-neutral-200 bg-white p-4"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="text-sm text-neutral-600">
-                      Round: <strong>{w.round}</strong>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {w.playerAName && (
-                        <span className="text-xs rounded-full bg-neutral-100 border px-2 py-0.5">
-                          A: {w.playerAName}
-                        </span>
-                      )}
-                      {w.playerBName && (
-                        <span className="text-xs rounded-full bg-neutral-100 border px-2 py-0.5">
-                          B: {w.playerBName}
-                        </span>
-                      )}
-                      <span className="text-xs rounded-full bg-emerald-600 text-white px-3 py-1">
-                        Vencedor por {w.attribute} (+{w.diff})
+          {winners.map((w, i) => {
+            const winC = cardIndex.get(w.winner) || null;
+            const losC = cardIndex.get(w.loser) || null;
+
+            return (
+              <li
+                key={`${w.round}-${i}`}
+                className="rounded-2xl border border-neutral-200 bg-white p-4"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="text-sm text-neutral-600">
+                    Round: <strong>{w.round}</strong>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {w.playerAName && (
+                      <span className="text-xs rounded-full bg-neutral-100 border px-2 py-0.5">
+                        A: {w.playerAName}
                       </span>
-                    </div>
+                    )}
+                    {w.playerBName && (
+                      <span className="text-xs rounded-full bg-neutral-100 border px-2 py-0.5">
+                        B: {w.playerBName}
+                      </span>
+                    )}
+                    <span className="text-xs rounded-full bg-emerald-600 text-white px-3 py-1">
+                      Vencedor por {w.attribute} (+{w.diff})
+                    </span>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3 items-stretch">
-                    <MiniCard
-                      card={winC}
-                      highlight
-                      attr={w.attribute}
-                      labelPrefix={
-                        w.winnerName ? `Vencedor — ${w.winnerName}` : "Vencedor"
-                      }
-                    />
-                    <div className="flex items-center justify-center text-2xl font-black">
-                      VS
-                    </div>
-                    <MiniCard
-                      card={losC}
-                      highlight={false}
-                      attr={w.attribute}
-                      labelPrefix="Perdedor"
-                    />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3 items-stretch">
+                  {/* Vencedor */}
+                  <CardThumb
+                    card={winC}
+                    label={w.winnerName ? `Vencedor — ${w.winnerName}` : "Vencedor"}
+                  />
+
+                  {/* VS */}
+                  <div className="flex items-center justify-center text-2xl font-black">
+                    VS
                   </div>
-                </li>
-              );
-            })}
-          </ul>
+
+                  {/* Perdedor */}
+                  <CardThumb card={losC} label="Perdedor" />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
         )}
       </section>
 
@@ -174,3 +171,45 @@ export default function App() {
     </div>
   );
 }
+
+function CardThumb({
+  card,
+  label,
+}: {
+  card: Card | null;
+  label: string;
+}) {
+  if (!card) {
+    return (
+      <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-neutral-300 p-4 text-neutral-500">
+        <div className="text-sm font-medium">{label}</div>
+        <div className="mt-2 text-xs">Carta não encontrada</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col items-center">
+      {/* Nome / apelido fora da carta */}
+      <div className="text-center mb-2">
+        <div className="text-[11px] text-neutral-500 font-medium">{label}</div>
+        <h4 className="text-sm font-bold leading-tight">{card.teacher}</h4>
+        {card.nickname && (
+          <p className="text-xs text-neutral-600">{card.nickname}</p>
+        )}
+      </div>
+
+      {/* Carta inteira */}
+      <div className="w-full bg-neutral-100 rounded-xl p-2 flex items-center justify-center">
+        <img
+          src={card.image}
+          alt={card.teacher}
+          loading="lazy"
+          className="w-full h-auto object-contain rounded-lg"
+          style={{ maxHeight: "260px" }} // ajuste se quiser miniaturas maiores/menores
+        />
+      </div>
+    </div>
+  );
+}
+

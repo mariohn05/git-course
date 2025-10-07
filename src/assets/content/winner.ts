@@ -3,10 +3,9 @@ import type { Winner } from "_types/arena";
 
 export const winnerContent: Winner[] = [
   {
-    round: "2025-09-30-1",
-    winner: "b-profa-renata",
-    loser: "a-prof-ricardo",
-    attribute: "carisma",
+    winner: "a-carlos",
+    loser: "b-jorge",
+    attribute: "aura",
     diff: 12,
     playerAName: "Ana",
     playerBName: "Bruno",
