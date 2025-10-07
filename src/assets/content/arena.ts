@@ -9,6 +9,7 @@ export const areaContent: ArenaState[] = [
     playerAName: "Player A",
     playerBName: "Player B",
   },
+  // apenas modifique a estrutura atual
 ];
 
 export default areaContent;

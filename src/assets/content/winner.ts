@@ -11,6 +11,7 @@ export const winnerContent: Winner[] = [
     playerBName: "Player B",
     winnerName: "Player A",
   },
+  // Copie e cole aqui a estrutura atual abaixo para criar uma nova
 ];
 
 export default winnerContent;
