@@ -101,7 +101,7 @@ export const deckContent: Deck = {
     {
       id: "b-lucas",
       teacher: "Lucas",
-      nickname: "O Mogador de novatos",
+      nickname: "O Mogador de betas",
       image: lucasCarta,
       attributes: {
         aura: 100,
