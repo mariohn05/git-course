@@ -1,6 +1,5 @@
 // Assets
 import carlosCarta from "../images/carlos-carta.png";
-import casteloCarta from "../images/castelo-carta.png";
 import jorgeCarta from "../images/jorge-carta.png";
 import lucasCarta from "../images/lucas-carta.png";
 import nobileCarta from "../images/nobile-carta.png";
@@ -8,7 +7,6 @@ import pabloCarta from "../images/pablo-carta.png";
 import sergioCarta from "../images/sergio-carta.png";
 import silvanaCarta from "../images/silvana-carta.png";
 import trojahnCarta from "../images/trojahn-carta.png";
-
 
 // Types
 import type { Card } from "_types/arena";
@@ -36,7 +34,7 @@ export const deckContent: Deck = {
     {
       id: "a-silvana",
       teacher: "Silvana",
-      nickname: "Mestre dos Algoritmos",
+      nickname: "A grão mestre dos Algoritmos",
       image: silvanaCarta,
       attributes: {
         aura: 76,
@@ -49,7 +47,7 @@ export const deckContent: Deck = {
     {
       id: "a-sergio",
       teacher: "Sérgio",
-      nickname: "O Cientista",
+      nickname: "O construtor de interfaces",
       image: sergioCarta,
       attributes: {
         aura: 77,
@@ -62,7 +60,7 @@ export const deckContent: Deck = {
     {
       id: "a-trojahn",
       teacher: "Tiago",
-      nickname: "O especialista da Web",
+      nickname: "O especialista em PHP dos santos",
       image: trojahnCarta,
       attributes: {
         aura: 83,
@@ -90,7 +88,7 @@ export const deckContent: Deck = {
     {
       id: "b-pablo",
       teacher: "Pablo",
-      nickname: "O Bem-Humorado",
+      nickname: "O Mister SQL",
       image: pabloCarta,
       attributes: {
         aura: 79,
@@ -103,7 +101,7 @@ export const deckContent: Deck = {
     {
       id: "b-lucas",
       teacher: "Lucas",
-      nickname: "O Chad",
+      nickname: "O Mogador de novatos",
       image: lucasCarta,
       attributes: {
         aura: 100,
@@ -114,16 +112,16 @@ export const deckContent: Deck = {
       },
     },
     {
-      id: "b-castelo",
-      teacher: "Castelo Branco",
-      nickname: "O Sr. Redes",
-      image: casteloCarta,
+      id: "b-pedro",
+      teacher: "Pedro Nobile",
+      nickname: "O John Kothin de oliveira",
+      image: nobileCarta,
       attributes: {
-        aura: 73,
-        recordeSupino: 84,
-        estilo: 72,
-        dificuldadeProva: 80,
-        fatorMedo: 76,
+        aura: 89,
+        recordeSupino: 100,
+        estilo: 71,
+        dificuldadeProva: 84,
+        fatorMedo: 96,
       },
     },
   ],

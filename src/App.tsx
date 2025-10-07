@@ -5,7 +5,6 @@ import { useMemo } from "react";
 import Header from "@components/structure/Header";
 import Footer from "@components/structure/Footer";
 import CardsGrid from "@components/commons/cards/CardGrid";
-import MiniCard from "@components/structure/MiniCard";
 import ArenaView from "@components/structure/AreaView";
 
 // Static Data Content
@@ -68,9 +67,7 @@ export default function App() {
       <Header />
 
       <section className="w-full px-4 mt-4">
-        <h2 className="text-xl font-semibold mb-3">
-          Arena de Batalha
-        </h2>
+        <h2 className="text-xl font-semibold mb-3">Arena de Batalha</h2>
         {!arena ? (
           <div className="rounded-xl border border-neutral-200 bg-white p-4 text-neutral-600">
             Configure <code>/arena.ts</code> assim:
@@ -98,12 +95,12 @@ export default function App() {
 
       <section className="w-full px-4 mt-10">
         <h3 className="text-lg font-semibold">Deck A</h3>
-        <CardsGrid cards={deckA}/>
+        <CardsGrid cards={deckA} />
       </section>
 
       <section className="w-full px-4 mt-6">
         <h3 className="text-lg font-semibold">Deck B</h3>
-        <CardsGrid cards={deckB}/>
+        <CardsGrid cards={deckB} />
       </section>
 
       <section className="w-full px-4 mt-10 pb-16">
@@ -115,55 +112,54 @@ export default function App() {
           </div>
         ) : (
           <ul className="space-y-4">
-          {winners.map((w, i) => {
-            const winC = cardIndex.get(w.winner) || null;
-            const losC = cardIndex.get(w.loser) || null;
+            {winners.map((w, i) => {
+              const winC = cardIndex.get(w.winner) || null;
+              const losC = cardIndex.get(w.loser) || null;
 
-            return (
-              <li
-                key={`${w.round}-${i}`}
-                className="rounded-2xl border border-neutral-200 bg-white p-4"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="text-sm text-neutral-600">
-                    Round: <strong>{w.round}</strong>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {w.playerAName && (
-                      <span className="text-xs rounded-full bg-neutral-100 border px-2 py-0.5">
-                        A: {w.playerAName}
+              return (
+                <li
+                  key={`${w}-${i}`}
+                  className="rounded-2xl border border-neutral-200 bg-white p-4"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      {w.playerAName && (
+                        <span className="text-xs rounded-full bg-neutral-100 border px-2 py-0.5">
+                          A: {w.playerAName}
+                        </span>
+                      )}
+                      {w.playerBName && (
+                        <span className="text-xs rounded-full bg-neutral-100 border px-2 py-0.5">
+                          B: {w.playerBName}
+                        </span>
+                      )}
+                      <span className="text-xs rounded-full bg-emerald-600 text-white px-3 py-1">
+                        Vencedor por {w.attribute} (+{w.diff})
                       </span>
-                    )}
-                    {w.playerBName && (
-                      <span className="text-xs rounded-full bg-neutral-100 border px-2 py-0.5">
-                        B: {w.playerBName}
-                      </span>
-                    )}
-                    <span className="text-xs rounded-full bg-emerald-600 text-white px-3 py-1">
-                      Vencedor por {w.attribute} (+{w.diff})
-                    </span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3 items-stretch">
-                  {/* Vencedor */}
-                  <CardThumb
-                    card={winC}
-                    label={w.winnerName ? `Vencedor — ${w.winnerName}` : "Vencedor"}
-                  />
-
-                  {/* VS */}
-                  <div className="flex items-center justify-center text-2xl font-black">
-                    VS
+                    </div>
                   </div>
 
-                  {/* Perdedor */}
-                  <CardThumb card={losC} label="Perdedor" />
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3 items-stretch">
+                    {/* Vencedor */}
+                    <CardThumb
+                      card={winC}
+                      label={
+                        w.winnerName ? `Vencedor — ${w.winnerName}` : "Vencedor"
+                      }
+                    />
+
+                    {/* VS */}
+                    <div className="flex items-center justify-center text-2xl font-black">
+                      VS
+                    </div>
+
+                    {/* Perdedor */}
+                    <CardThumb card={losC} label="Perdedor" />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         )}
       </section>
 
@@ -172,13 +168,7 @@ export default function App() {
   );
 }
 
-function CardThumb({
-  card,
-  label,
-}: {
-  card: Card | null;
-  label: string;
-}) {
+function CardThumb({ card, label }: { card: Card | null; label: string }) {
   if (!card) {
     return (
       <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-neutral-300 p-4 text-neutral-500">
@@ -212,4 +202,3 @@ function CardThumb({
     </div>
   );
 }
-
