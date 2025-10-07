@@ -36,7 +36,7 @@ export const deckContent: Deck = {
     {
       id: "a-silvana",
       teacher: "Silvana",
-      nickname: "A Visionária",
+      nickname: "Mestre dos Algoritmos",
       image: silvanaCarta,
       attributes: {
         aura: 76,
@@ -62,7 +62,7 @@ export const deckContent: Deck = {
     {
       id: "a-trojahn",
       teacher: "Tiago",
-      nickname: "O Cientista",
+      nickname: "O especialista da Web",
       image: trojahnCarta,
       attributes: {
         aura: 83,
@@ -77,7 +77,7 @@ export const deckContent: Deck = {
     {
       id: "b-jorge",
       teacher: "Jorge",
-      nickname: "A Exigente",
+      nickname: "O Anfitrião das Estruturas de Dados",
       image: jorgeCarta,
       attributes: {
         aura: 79,
@@ -103,7 +103,7 @@ export const deckContent: Deck = {
     {
       id: "b-lucas",
       teacher: "Lucas",
-      nickname: "A Estrategista",
+      nickname: "O Chad",
       image: lucasCarta,
       attributes: {
         aura: 100,
@@ -115,8 +115,8 @@ export const deckContent: Deck = {
     },
     {
       id: "b-castelo",
-      teacher: "Wcastelo",
-      nickname: "A Estrategista",
+      teacher: "Castelo Branco",
+      nickname: "O Sr. Redes",
       image: casteloCarta,
       attributes: {
         aura: 73,

@@ -6,10 +6,10 @@ export const winnerContent: Winner[] = [
     winner: "a-carlos",
     loser: "b-jorge",
     attribute: "aura",
-    diff: 12,
-    playerAName: "Ana",
-    playerBName: "Bruno",
-    winnerName: "Bruno",
+    diff: 20,
+    playerAName: "Player A",
+    playerBName: "Player B",
+    winnerName: "Player A",
   },
 ];
 
